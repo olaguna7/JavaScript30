@@ -66,12 +66,14 @@
     console.log(event)
     if (keyValues.includes(event.keyCode.toString())) {
       let [ keyToPlay, audioToPlay ] = document.querySelectorAll(`[data-key="${event.keyCode}"]`);
+      audioToPlay.currentTime = 0;
       audioToPlay.play();
       keyToPlay.classList.add("playing");
       setTimeout(() => {
         console.log("Delayed for 50 miliseconds");
         keyToPlay.classList.remove("playing");
-      }, 50);
+      }, 100);
+      
     }
   });
 
